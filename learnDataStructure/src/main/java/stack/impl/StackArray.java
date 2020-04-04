@@ -1,4 +1,4 @@
-package test.stack;
+package stack.impl;
 
 import stack.Stack;
 import stack.exception.StackEmptyException;

@@ -1,9 +1,9 @@
-package test.stack;
+package stack;
 
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-import stack.Stack;
+import stack.impl.StackArray;
 
 /**
  * StackArray Tester.
