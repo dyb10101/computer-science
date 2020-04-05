@@ -1,4 +1,4 @@
-package list.imp;
+package list.impl;
 
 import list.Node;
 

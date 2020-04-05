@@ -1,7 +1,7 @@
 package stack.impl;
 
 import list.Node;
-import list.imp.SLinkedNode;
+import list.impl.SLinkedNode;
 import stack.StackGeneric;
 import stack.exception.StackEmptyException;
 
