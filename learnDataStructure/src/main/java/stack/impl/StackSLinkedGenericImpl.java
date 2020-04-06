@@ -68,6 +68,7 @@ public class StackSLinkedGenericImpl<T> implements StackGeneric<T> {
         }
         //取栈顶节点的数据域
         T data = top.getData();
+        Node<T> temp = top;
         //栈顶指针指向原来栈顶节点的前一个节点
         SLinkedNode topSL = null;
         if (top instanceof SLinkedNode) {
@@ -75,6 +76,9 @@ public class StackSLinkedGenericImpl<T> implements StackGeneric<T> {
         }
         top = topSL.getNext();
         size--;
+        //把原来的top节点的指针域设置成null，原来的top节点不再指向任何节点，
+        //但是看到很多其他stack实现方式没有这样做
+        temp = null;
         return data;
     }
 
