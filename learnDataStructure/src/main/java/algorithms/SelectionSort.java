@@ -1,5 +1,8 @@
 package algorithms;
 
+import utils.IntegerArrayGenerator;
+import utils.SortingHelper;
+
 /**
  * 选择排序（基于比较的选择排序）
  */
@@ -29,12 +32,11 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {95,3,0,7,88,5,66,88,2};
-        Integer[] arr_sort = SelectionSort.sort(arr);
-        for (Integer ele : arr_sort){
-            System.out.print(ele+" ");
+//        Integer[] arr = {95,3,0,7,88,5,66,88,2,95,3,0,7,88,5,66,88,2};
+        int[] dataSize = {10000,100000};
+        for (int size : dataSize){
+            Integer[] arr = IntegerArrayGenerator.generateRandomArray(size,size);
+            SortingHelper.sortTest("SelectionSort",arr);
         }
-
-        System.out.println();
     }
 }
