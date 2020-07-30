@@ -1,5 +1,8 @@
 package algorithms;
 
+import utils.IntegerArrayGenerator;
+import utils.SortingHelper;
+
 /**
  * 插入排序（基于比较的插入排序）
  */
@@ -26,6 +29,11 @@ public class InsertionSort {
 
     public static void main(String[] args) {
 
-
+        int[] dataSize = {10000,100000};
+        for (int size : dataSize){
+            Integer[] arr = IntegerArrayGenerator.generateRandomArray(size,size);
+//            SortingHelper.sortTest("SelectionSort",arr);
+            SortingHelper.sortTest("InsertionSort",arr);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package utils;
 
+import algorithms.InsertionSort;
 import algorithms.SelectionSort;
 
 public class SortingHelper {
@@ -20,6 +21,9 @@ public class SortingHelper {
         long startTime = System.nanoTime();
         if (sortName.equalsIgnoreCase("SelectionSort")){
             arr_sorted = SelectionSort.sort(arr);
+        }
+        if (sortName.equalsIgnoreCase("InsertionSort")){
+            arr_sorted = InsertionSort.sort(arr);
         }
         long endTime = System.nanoTime();
         double totalTime = (endTime - startTime)/1000000000.0;//单位：秒
