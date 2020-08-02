@@ -10,7 +10,7 @@ public class InsertionSort {
     private InsertionSort(){}
     public static <T extends Comparable<T>> T[] sort(T[] arr){
         for (int i = 0;i<arr.length;i++){
-            for (int j = i;j-1>=0;j--){
+            for (int j = i;j >= 1;j--){
                 if (arr[j].compareTo(arr[j-1])<0){
                     swap(arr,j,j-1);
                 }else {
