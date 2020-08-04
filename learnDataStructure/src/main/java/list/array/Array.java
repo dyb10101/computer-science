@@ -39,9 +39,9 @@ public class Array {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append(String.format("Array : size = %d , capacity = %d\n",size,data.length));
+        result.append(String.format("Array:[size = %d , capacity = %d]\n",size,data.length));
         result.append("[");
-        for (int i =0 ; i<data.length;i++){
+        for (int i =0 ; i<size;i++){
             result.append(data[i]);
             if (i!=size-1){
                 result.append(",");
@@ -49,5 +49,13 @@ public class Array {
         }
         result.append("]");
         return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Array scores = new Array(100);
+        for (int i = 0;i<10;i++){
+            scores.addLast(i);
+        }
+        System.out.println(scores.toString());
     }
 }
