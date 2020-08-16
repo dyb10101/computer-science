@@ -36,6 +36,20 @@ public class Array {
         ++size;
     }
 
+    //获取index位置的元素
+    public int get(int index){
+        if (index<0 || index >=size)
+            throw new IllegalArgumentException("get failed, index is illegal: " + index);
+        return data[index];
+    }
+    //修改index位置的元素值
+    public void set(int index,int e){
+        if (index<0 || index >=size)
+            throw new IllegalArgumentException("get failed, index is illegal: " + index);
+        data[index] = e;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -56,6 +70,17 @@ public class Array {
         for (int i = 0;i<10;i++){
             scores.addLast(i);
         }
-        System.out.println(scores.toString());
+        System.out.println(scores);
+
+        scores.addFirst(888);
+        System.out.println(scores);
+
+        scores.add(1,666);
+        System.out.println(scores);
+
+        System.out.println(scores.get(10));
+
+        scores.set(0,888666);
+        System.out.println(scores.get(0));
     }
 }
