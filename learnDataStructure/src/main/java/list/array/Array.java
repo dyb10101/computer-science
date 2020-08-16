@@ -1,11 +1,11 @@
 package list.array;
 
-public class Array {
-    private int[] data;
-    private int size;
+public class Array<E> {
+    private E[] data;
+    private int size;//数组中实际的元素个数
 
     public Array(int capacity){
-        data = new int[capacity];
+        data = (E[])new Object[capacity];
         size = 0;
     }
 
@@ -13,15 +13,15 @@ public class Array {
         this(10);
     }
 
-    public void addLast(int e){
+    public void addLast(E e){
         add(size,e);
     }
 
-    public void addFirst(int e){
+    public void addFirst(E e){
         add(0,e);
     }
 
-    public void add(int index, int e){
+    public void add(int index, E e){
 
         if (size == data.length)
             throw new IllegalArgumentException("add failed,array is full");
@@ -36,14 +36,30 @@ public class Array {
         ++size;
     }
 
+    public E remove(int index){
+        if (size == data.length)
+            throw new IllegalArgumentException("add failed,array is full");
+
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("add failed,index  < 0 || index > size");
+
+        E e = data[index];
+        for (int i = index;i<size;i++){
+            data[i] = data[i+1];
+        }
+        --size;
+        data[size] = null;
+        return e;
+    }
+
     //获取index位置的元素
-    public int get(int index){
+    public E get(int index){
         if (index<0 || index >=size)
             throw new IllegalArgumentException("get failed, index is illegal: " + index);
         return data[index];
     }
     //修改index位置的元素值
-    public void set(int index,int e){
+    public void set(int index,E e){
         if (index<0 || index >=size)
             throw new IllegalArgumentException("get failed, index is illegal: " + index);
         data[index] = e;
@@ -66,7 +82,7 @@ public class Array {
     }
 
     public static void main(String[] args) {
-        Array scores = new Array(100);
+        Array<Integer> scores = new Array(100);
         for (int i = 0;i<10;i++){
             scores.addLast(i);
         }
@@ -81,6 +97,11 @@ public class Array {
         System.out.println(scores.get(10));
 
         scores.set(0,888666);
-        System.out.println(scores.get(0));
+        System.out.println(scores);
+
+        int index = scores.size;
+        Integer removedEle = scores.remove(index);
+        System.out.println("被删除的元素："+"index = "+index+";value = "+removedEle);
+        System.out.println("被删除元素后的数组："+scores);
     }
 }

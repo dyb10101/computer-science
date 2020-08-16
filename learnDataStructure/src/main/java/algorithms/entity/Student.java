@@ -1,6 +1,7 @@
 package algorithms.entity;
 
 import algorithms.SelectionSort;
+import list.array.Array;
 
 public class Student implements Comparable<Student> {
 
@@ -54,13 +55,19 @@ public class Student implements Comparable<Student> {
     }
 
     public static void main(String[] args) {
-        Student[] students = {new Student("lily",28),
-                              new Student("lucy",26),
-                              new Student("jack",29),
-                              new Student("小红",27)};
-        Student[] sortedStudents = SelectionSort.sort(students);
-        for (Student stu : sortedStudents){
-            System.out.println(stu.toString());
-        }
+//        Student[] students = {new Student("lily",28),
+//                              new Student("lucy",26),
+//                              new Student("jack",29),
+//                              new Student("小红",27)};
+//        Student[] sortedStudents = SelectionSort.sort(students);
+//        for (Student stu : sortedStudents){
+//            System.out.println(stu.toString());
+//        }
+
+        Array<Student> studentArray = new Array<>();
+        studentArray.addLast(new Student("lily",28));
+        studentArray.addLast(new Student("lucy",26));
+        studentArray.addLast(new Student("jack",29));
+        System.out.println(studentArray);
     }
 }
