@@ -47,8 +47,8 @@ public class Array<E> {
         for (int i = index;i<size;i++){
             data[i] = data[i+1];
         }
-        --size;
-        data[size] = null;
+        --size;//size减小1
+        data[size] = null;//这时的size正好是被删除的元素的index，不用再减一了
         return e;
     }
 
